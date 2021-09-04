@@ -15,7 +15,7 @@
   </nav>
 </div>
 
-<div class="pointer-events-none select-none">
+<div class="pointer-events-none select-none w-screen h-screen">
   <img
     src="/night-sky.jpg"
     alt=""
