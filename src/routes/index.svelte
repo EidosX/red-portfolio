@@ -1,5 +1,11 @@
-<script>
+<script lang="ts">
+  import { onMount } from "svelte";
   import Typewriter from "svelte-typewriter";
+
+  let mounted: boolean = false;
+  onMount(() => {
+    mounted = true;
+  });
 </script>
 
 <div class="flex justify-center">
@@ -15,38 +21,40 @@
   </nav>
 </div>
 
-<div class="pointer-events-none select-none w-screen h-screen">
-  <img
-    id="bg-img"
-    src="/night-sky.webp"
-    alt=""
-    class="w-screen h-screen object-cover absolute"
-    style="z-index: -1;"
-  />
-
-  <div class="w-screen h-screen grid place-items-center absolute pb-12 overflow-hidden">
-    <Typewriter loop interval={64} delay={600} cursor={false}>
-      {#each ["Software Engineer", "UI / UX Designer", "Software Developer", "Web Developer"] as title}
-        <h1
-          style="font-family: 'Oswald';"
-          class="text-5xl lg:text-8xl xl:text-9xl tracking-widest uppercase font-extralight text-center relative break-words"
-        >
-          {title}
-        </h1>
-      {/each}
-    </Typewriter>
-  </div>
-
-  <div class="w-screen h-screen flex justify-center overflow-hidden absolute">
-    <div id="bg-curve" class="w-screen bg-black absolute bottom-0 blur-sm" />
+{#if mounted}
+  <div class="pointer-events-none select-none w-screen h-screen">
     <img
-      id="character"
-      src="/character/typing-1.png"
+      id="bg-img"
+      src="/night-sky.webp"
       alt=""
-      class="absolute bottom-0 max-w-2xl 2xl:max-w-3xl max-h-full object-contain"
+      class="w-screen h-screen object-cover absolute"
+      style="z-index: -1;"
     />
+
+    <div class="w-screen h-screen grid place-items-center absolute pb-12 overflow-hidden">
+      <Typewriter loop interval={64} delay={600} cursor={false}>
+        {#each ["Software Engineer", "UI / UX Designer", "Software Developer", "Web Developer"] as title}
+          <h1
+            style="font-family: 'Oswald';"
+            class="text-5xl lg:text-8xl xl:text-9xl tracking-widest uppercase font-extralight text-center relative break-words"
+          >
+            {title}
+          </h1>
+        {/each}
+      </Typewriter>
+    </div>
+
+    <div class="w-screen h-screen flex justify-center overflow-hidden absolute">
+      <div id="bg-curve" class="w-screen bg-black absolute bottom-0 blur-sm" />
+      <img
+        id="character"
+        src="/character/typing-1.png"
+        alt=""
+        class="absolute bottom-0 max-w-2xl 2xl:max-w-3xl max-h-full object-contain"
+      />
+    </div>
   </div>
-</div>
+{/if}
 
 <style>
   @keyframes bg-curve-intro {
