@@ -78,11 +78,11 @@
     border-radius: 100% 100% 0 0;
     height: 32rem;
     min-width: 80rem;
-    animation: bg-curve-intro 0.8s forwards 0s 1 ease-out;
+    animation: bg-curve-intro 0.8s forwards 0s ease-out;
   }
   #character {
     transform: translateY(100%);
-    animation: character-intro 0.6s forwards 0.2s 1 ease-out;
+    animation: character-intro 0.6s forwards 0.2s ease-out;
   }
   #bg-img {
     animation: bg-img-intro 1.2s forwards 0s ease-in-out;
