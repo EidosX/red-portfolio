@@ -58,7 +58,8 @@
     }
   }
   @keyframes character-intro {
-    0% {
+    0%,
+    10% {
       transform: translateY(100%);
     }
     100% {
