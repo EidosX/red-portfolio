@@ -17,14 +17,15 @@
 
 <div class="pointer-events-none select-none w-screen h-screen">
   <img
-    src="/night-sky.jpg"
+    id="bg-img"
+    src="/night-sky.webp"
     alt=""
     class="w-screen h-screen object-cover absolute"
     style="z-index: -1;"
   />
 
   <div class="w-screen h-screen grid place-items-center absolute pb-12 overflow-hidden">
-    <Typewriter loop interval={64} delay={1024} cursor={false}>
+    <Typewriter loop interval={64} delay={600} cursor={false}>
       {#each ["Software Engineer", "UI / UX Designer", "Software Developer", "Web Developer"] as title}
         <h1
           style="font-family: 'Oswald';"
@@ -37,14 +38,53 @@
   </div>
 
   <div class="w-screen h-screen flex justify-center overflow-hidden absolute">
-    <div
-      class="w-screen bg-black absolute bottom-0 blur-sm"
-      style="border-radius: 100% 100% 0 0; height: 32rem; transform: translateY(50%) scaleX(130%); min-width: 80rem;"
-    />
+    <div id="bg-curve" class="w-screen bg-black absolute bottom-0 blur-sm" />
     <img
+      id="character"
       src="/character/typing-1.png"
       alt=""
-      class="absolute bottom-0 max-w-2xl 2xl:max-w-3xl max-h-full object-contain translate-y-16"
+      class="absolute bottom-0 max-w-2xl 2xl:max-w-3xl max-h-full object-contain"
     />
   </div>
 </div>
+
+<style>
+  @keyframes bg-curve-intro {
+    0% {
+      transform: scaleX(130%) translateY(100%);
+    }
+    100% {
+      transform: scaleX(130%) translateY(50%);
+    }
+  }
+  @keyframes character-intro {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(4rem);
+    }
+  }
+  @keyframes bg-img-intro {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+
+  #bg-curve {
+    border-radius: 100% 100% 0 0;
+    height: 32rem;
+    min-width: 80rem;
+    animation: bg-curve-intro 0.8s forwards 0s 1 ease-out;
+  }
+  #character {
+    transform: translateY(100%);
+    animation: character-intro 0.6s forwards 0.2s 1 ease-out;
+  }
+  #bg-img {
+    animation: bg-img-intro 1.2s forwards 0s ease-in-out;
+  }
+</style>
