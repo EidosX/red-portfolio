@@ -5,14 +5,16 @@
 </script>
 
 <div class="flex justify-center">
-  <nav class="flex absolute items-center justify-center h-20 px-8 w-full max-w-3xl gap-8">
+  <nav
+    class="flex absolute items-center justify-center top-10 px-8 w-full max-w-3xl gap-6 flex-wrap"
+  >
     <p class="text-blue-300 opacity-60 hidden sm:block uppercase tracking-wide mr-auto">
       <a href="/">Diego Imbert</a>
     </p>
-    <p class="text-blue-300 opacity-60"><a href="/">Skills</a></p>
-    <p class="text-blue-300 opacity-60"><a href="/">Portfolio</a></p>
+    <p class="text-blue-300 opacity-60"><a href="/">{$lang.navbar.skills}</a></p>
+    <p class="text-blue-300 opacity-60"><a href="/">{$lang.navbar.projects}</a></p>
     <p class="text-pink-500 relative z-10">
-      <strong><a href="/">Contact me</a></strong>
+      <strong><a href="/">{$lang.navbar.contactMe}</a></strong>
     </p>
   </nav>
 </div>
@@ -31,7 +33,7 @@
       {#each $lang.typewriterHeadlines as title}
         <h1
           style="font-family: 'Oswald';"
-          class="text-5xl lg:text-8xl xl:text-9xl tracking-widest uppercase font-extralight text-center relative break-words"
+          class="text-3xl lg:text-8xl xl:text-9xl tracking-widest uppercase font-extralight text-center relative break-words"
         >
           {title}
         </h1>
@@ -45,7 +47,7 @@
       id="character"
       src="/character/typing-1.png"
       alt=""
-      class="absolute bottom-0 max-w-2xl 2xl:max-w-3xl max-h-full object-contain"
+      class="absolute -bottom-8 sm:-bottom-16 max-w-xl sm:max-w-2xl 2xl:max-w-3xl max-h-full object-contain"
     />
   </div>
 </div>
@@ -65,7 +67,7 @@
       transform: translateY(32rem);
     }
     100% {
-      transform: translateY(4rem);
+      transform: translateY(0);
     }
   }
   @keyframes bg-img-intro {
@@ -80,7 +82,7 @@
   #bg-curve {
     filter: blur(0.1rem);
     border-radius: 100% 100% 0 0;
-    height: 32rem;
+    height: calc(min(32rem, 72vh));
     min-width: 80rem;
     animation: bg-curve-intro 0.8s forwards 0s ease-out;
   }
