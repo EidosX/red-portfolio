@@ -60,7 +60,7 @@
   @keyframes character-intro {
     0%,
     10% {
-      transform: translateY(100%);
+      transform: translateY(32rem);
     }
     100% {
       transform: translateY(4rem);
@@ -82,7 +82,7 @@
     animation: bg-curve-intro 0.8s forwards 0s ease-out;
   }
   #character {
-    transform: translateY(100%);
+    transform: translateY(100000rem);
     animation: character-intro 0.6s forwards 0.2s ease-out;
   }
   #bg-img {
