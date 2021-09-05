@@ -1,6 +1,7 @@
 <script>
   import { lang } from "../../lang/lang";
   import Typewriter from "svelte-typewriter";
+  import ShootingStars from "./ShootingStars.svelte";
 </script>
 
 <div class="flex justify-center">
@@ -17,7 +18,7 @@
     </p>
   </nav>
 
-  <svg id="arrows-down" class="absolute z-10 bottom-0 animate-bounce">
+  <svg id="arrows-down" class="absolute z-10 bottom-2 animate-bounce">
     <path d="M0 20 L30 52 L60 20" />
     <path d="M0 40 L30 72 L60 40" />
   </svg>
@@ -31,9 +32,10 @@
     class="w-screen h-screen object-cover absolute"
     style="z-index: -1;"
   />
+  <ShootingStars />
 
   <div class="w-screen h-screen grid place-items-center absolute pb-12 overflow-hidden">
-    <Typewriter loop interval={64} delay={600} cursor={false}>
+    <Typewriter loop interval={64} delay={1200} cursor={false}>
       {#each $lang.typewriterHeadlines as title}
         <h1
           style="font-family: 'Oswald';"
@@ -88,24 +90,26 @@
     border-radius: 100% 100% 0 0;
     height: calc(min(32rem, 72vh));
     min-width: 80rem;
-    animation: bg-curve-intro 0.8s forwards 0s ease-out;
+    transform: scaleX(130%) translateY(100%);
+    animation: bg-curve-intro 0.8s forwards 0.8s ease-out;
   }
   #character {
     transform: translateY(100000rem);
-    animation: character-intro 0.6s forwards 0.2s ease-out;
+    animation: character-intro 0.6s forwards 1s ease-out;
   }
   #bg-img {
-    animation: bg-img-intro 1.2s forwards 0s ease-in-out;
+    opacity: 0;
+    animation: bg-img-intro 1.2s forwards 0.6s ease-in-out;
   }
 
   #arrows-down {
-    width: 60px;
-    height: 72px;
+    width: 40px;
+    height: 62px;
   }
   #arrows-down path {
-    transform: scale(0.7);
-    stroke: rgba(152, 179, 255, 0.671);
+    transform: scale(0.6);
+    stroke: rgba(152, 179, 255, 0.5);
     fill: transparent;
-    stroke-width: 0.12rem;
+    stroke-width: 0.2rem;
   }
 </style>
