@@ -1,4 +1,6 @@
 <script>
+  import { lang } from "../lang/lang";
+
   import Typewriter from "svelte-typewriter";
 </script>
 
@@ -26,7 +28,7 @@
 
   <div class="w-screen h-screen grid place-items-center absolute pb-12 overflow-hidden">
     <Typewriter loop interval={64} delay={600} cursor={false}>
-      {#each ["Software Engineer", "UI / UX Designer", "Software Developer", "Web Developer"] as title}
+      {#each $lang.typewriterHeadlines as title}
         <h1
           style="font-family: 'Oswald';"
           class="text-5xl lg:text-8xl xl:text-9xl tracking-widest uppercase font-extralight text-center relative break-words"
@@ -38,7 +40,7 @@
   </div>
 
   <div class="w-screen h-screen flex justify-center overflow-hidden absolute">
-    <div id="bg-curve" class="w-screen bg-black absolute bottom-0 blur-sm" />
+    <div id="bg-curve" class="w-screen bg-black absolute bottom-0" />
     <img
       id="character"
       src="/character/typing-1.png"
@@ -76,6 +78,7 @@
   }
 
   #bg-curve {
+    filter: blur(0.1rem);
     border-radius: 100% 100% 0 0;
     height: 32rem;
     min-width: 80rem;
