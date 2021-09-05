@@ -51,7 +51,7 @@
     <div id="bg-curve" class="w-screen bg-black absolute bottom-0" />
     <img
       id="character"
-      src="/character/typing-1.png"
+      src="/character/typing.webp"
       alt=""
       class="absolute -bottom-8 sm:-bottom-16 max-w-xl sm:max-w-2xl 2xl:max-w-3xl max-h-full object-contain"
     />
